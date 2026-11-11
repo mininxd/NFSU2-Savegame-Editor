@@ -78,9 +78,9 @@ Requirements: Node.js 24 or newer.
 
 ```
 npm ci
-npm run build    # compiles src/ to dist/ and copies static files
+npm run build    # compiles src/ to docs/ and copies static files
 npm test         # build, then run the test suite
-npm run clean    # remove dist/
+npm run clean    # remove docs/
 ```
 
 Each build stamps the header with the package version and a UTC build number (`YYYYMMDDhhmmss`). The splash label lives in `index.html`; update it for the next feature milestone.
@@ -97,10 +97,10 @@ AngularJS 1.8.2 is loaded from a CDN in `index.html`.
 
 ## Running locally
 
-The editor fetches `car-donors.json`, so it must be served over HTTP rather than opened from disk. After `npm run build`, serve `dist/`:
+The editor fetches `car-donors.json`, so it must be served over HTTP rather than opened from disk. After `npm run build`, serve `docs/`:
 
 ```
-cd dist
+cd docs
 python -m http.server 8765
 ```
 
@@ -108,7 +108,7 @@ Then open `http://127.0.0.1:8765/index.html`.
 
 ## Deployment
 
-`.github/workflows/deploy.yml` runs the tests and builds on every push to `main`, then deploys `dist/` to GitHub Pages. In the repository settings, set **Pages > Build and deployment > Source** to **GitHub Actions** once.
+Deploying to GitHub Pages can be done either from the `docs/` folder on `main` (set **Pages > Build and deployment > Source** to **Deploy from a branch**, branch `main`, folder `/docs`) or via `.github/workflows/deploy.yml` with **GitHub Actions**.
 
 ## Usage
 

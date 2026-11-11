@@ -212,8 +212,16 @@
 }
 
 /* The body gradients in editor.css are blue; the site's is a soft grey glow over the page color. */
+html {
+  color-scheme: dark;
+}
+
 body {
-  background: radial-gradient(1200px 480px at 50% -160px, #2a2a2a, transparent 70%) no-repeat, #0d0d0d;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(ellipse 100% 500px at 50% -160px, #2a2a2a, transparent 75%) no-repeat, #0d0d0d;
 }
 
 /* editor.css gives these rows a light background, which clashes with the dark theme's light text. */
@@ -259,10 +267,13 @@ body {
   --hud-glow: rgba(200, 240, 136, .45);
 }
 
-.editor-header { padding: 32px 24px; }
+.editor-header {
+  padding: clamp(20px, 3vw, 32px) max(24px, env(safe-area-inset-right)) clamp(20px, 3vw, 32px) max(24px, env(safe-area-inset-left));
+}
 .editor-header-inner {
-  width: min(100%, 1120px);
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -320,9 +331,10 @@ body {
   .editor-header .build-splash { animation: none; }
 }
 .editor-main {
-  width: min(100%, 1168px);
-  margin: 0 auto;
-  padding: 24px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 24px max(24px, env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) max(24px, env(safe-area-inset-left));
   display: grid;
   gap: 20px;
 }
@@ -351,7 +363,11 @@ body {
 }
 .profile-form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .profile-form .bike-dialog-actions { grid-column: 1 / -1; }
-.editor-main .bike-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.editor-main .bike-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 16px;
+}
 .editor-main .bike-card { min-width: 0; padding: 18px; display: flex; flex-direction: column; gap: 14px; }
 .editor-main .bike-card-heading { grid-template-columns: 1fr auto; align-items: center; gap: 12px; }
 .editor-main .bike-card-heading > strong { color: var(--color-text-strong); font-size: 15px; }
@@ -381,6 +397,10 @@ body {
 .download-section > button { flex-shrink: 0; }
 .tuning-panel { overflow-wrap: anywhere; }
 
+.bike-dialog-backdrop {
+  padding: max(20px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) max(20px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+}
+
 @media (max-width: 760px) {
   .editor-header-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
   .editor-build { align-items: flex-start; text-align: left; }
@@ -390,12 +410,19 @@ body {
   .editor-main .download-section { flex-direction: column; align-items: stretch; }
 }
 @media (max-width: 480px) {
-  .editor-header { padding: 24px 16px; }
-  .editor-main { padding: 16px; gap: 16px; }
+  .editor-header {
+    padding: 20px max(16px, env(safe-area-inset-right)) 20px max(16px, env(safe-area-inset-left));
+  }
+  .editor-main {
+    padding: 16px max(16px, env(safe-area-inset-right)) calc(16px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+    gap: 16px;
+  }
   .editor-main .profile-section { padding: 16px; }
   .profile-form { grid-template-columns: 1fr; }
   .slot-operation { align-items: stretch; flex-direction: column; }
-  .bike-dialog-backdrop { padding: 10px; }
+  .bike-dialog-backdrop {
+    padding: max(10px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
+  }
   .tuning-dialog { padding: 16px; }
 }
 .visual-group { margin: 1rem 0; }

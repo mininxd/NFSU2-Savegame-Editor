@@ -6,10 +6,10 @@ import {
   CAR_TYPE_HASH_REL, VISUAL_OFF, VISUAL_COUNT, UNIQUE_PERF_OFF, PERF_OFF,
   PERF_PURCHASE_OFF, SLOT_LOCK_REL, SLOT_BOUGHT_REL, MONEY_OFF,
   NAME_OFF, NAME_FIELD_SIZE,
-} from '../dist/model/layout.js';
-import { TUNING_OFF, SETUP_COUNT, SETUP_SIZE } from '../dist/model/dyno.js';
-import { PERF_COUNT, UNIQUE_PERF_COUNT } from '../dist/model/perf.js';
-import { checkSave, verifyChecksums } from '../dist/model/save-file.js';
+} from '../docs/model/layout.js';
+import { TUNING_OFF, SETUP_COUNT, SETUP_SIZE } from '../docs/model/dyno.js';
+import { PERF_COUNT, UNIQUE_PERF_COUNT } from '../docs/model/perf.js';
+import { checkSave, verifyChecksums } from '../docs/model/save-file.js';
 
 const root = new URL('../', import.meta.url);
 const save = new Uint8Array(readFileSync(new URL('testfile/treav0r', root)));

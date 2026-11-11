@@ -4,7 +4,7 @@
 // The case inputs contain no game data, so they can be shared to obtain the game executable's own results.
 // Usage: npm run build && NFSU2_GLOBALB=<path> node scripts/fixture-dyno.mjs [save=testfile/treav0r] [setup=1]
 import { readFileSync } from 'node:fs';
-import { DynoModel, findCar, parseGameData, readSlotDyno } from '../dist/model/dyno.js';
+import { DynoModel, findCar, parseGameData, readSlotDyno } from '../docs/model/dyno.js';
 
 const bunPath = process.env.NFSU2_GLOBALB;
 if (!bunPath) throw new Error('Set NFSU2_GLOBALB to your GLOBALB.BUN.');

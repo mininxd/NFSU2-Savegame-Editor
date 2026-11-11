@@ -9,7 +9,7 @@
     "allowUmdGlobalAccess": true,
     "skipLibCheck": true,
     "rootDir": "src",
-    "outDir": "dist",
+    "outDir": "docs",
     "forceConsistentCasingInFileNames": true
   },
   "include": ["src/**/*.ts"]
